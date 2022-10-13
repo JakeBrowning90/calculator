@@ -1,5 +1,3 @@
-console.log("Hello world");
-
 const add = (x, y) => x + y;
 const subtract = (x, y) => x - y;
 const multiply = (x, y) => x * y;
@@ -16,11 +14,22 @@ const operate = (operator, x, y) =>  {
     }
     else if (operator == "/") {
         return divide(x, y)
-    }
-    
+    } 
 }
+
+let displayValue = [];
 
 console.log(operate("+", 1, 1));
 console.log(operate("-", 1, 1));
 console.log(operate("*", 5, 5));
 console.log(operate("/", 20, 5));
+
+document.getElementById("display").textContent = "";
+
+const numerals = document.querySelectorAll(".numeral");
+numerals.forEach((button) => {
+    button.addEventListener('click', () => {
+        displayValue.push(button.value);
+        document.getElementById("display").textContent = displayValue.join("");
+    })
+});

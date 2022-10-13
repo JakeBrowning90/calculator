@@ -6,35 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jake's Calculator</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <h1>Jake's Calculator</h1>
     <div class="workspace">
-        <div class="display">RESULT</div>
+        <p class="display" id="display"></p> <!--12 places-->
         <div class="row">
-            <button type="button">7</button>
-            <button type="button">8</button>
-            <button type="button">9</button>
-            <button type="button">%</button>
+            <button type="button" class="numeral" value=7>7</button>
+            <button type="button" class="numeral" value=8>8</button>
+            <button type="button" class="numeral" value=9>9</button>
+            <button type="button" value="%">%</button>
         </div>
         <div class="row">
-            <button type="button">4</button>
-            <button type="button">5</button>
-            <button type="button">6</button>
-            <button type="button">x</button>
+            <button type="button" class="numeral" value=4>4</button>
+            <button type="button" class="numeral" value=5>5</button>
+            <button type="button" class="numeral" value=6>6</button>
+            <button type="button" value="*">x</button>
         </div>
         <div class="row">
-            <button type="button">1</button>
-            <button type="button">2</button>
-            <button type="button">3</button>
-            <button type="button">-</button>
+            <button type="button" class="numeral" value=1>1</button>
+            <button type="button" class="numeral" value=2>2</button>
+            <button type="button" class="numeral" value=3>3</button>
+            <button type="button" value="-">-</button>
         </div>
         <div class="row">
-        <button type="button">0</button>
-        <button type="button">C</button>
-        <button type="button">+</button>
-        <button type="button">=</button>
+            <button type="button" value="C">C</button>
+            <button type="button" class="numeral" value=0>0</button>
+            <button type="button" value="+">+</button>
+            <button type="button" value="=">=</button>
         </div>
     </div>
 </body>
