@@ -2,7 +2,7 @@ const add = (x, y) => x + y;
 const subtract = (x, y) => x - y;
 const multiply = (x, y) => x * y;
 const divide = (x, y) => x / y;
-const operate = (operator, x, y) =>  {
+const operate = ([operator, x, y]) =>  {
     if (operator == "+") {
         return add(x, y)
     }
@@ -18,14 +18,8 @@ const operate = (operator, x, y) =>  {
 }
 
 let displayValue = [];
-
-console.log(operate("+", 1, 1));
-console.log(operate("-", 1, 1));
-console.log(operate("*", 5, 5));
-console.log(operate("/", 20, 5));
-
-document.getElementById("display").textContent = "";
-
+let operation = [];
+//document.getElementById("display").textContent = "";
 const numerals = document.querySelectorAll(".numeral");
 numerals.forEach((button) => {
     button.addEventListener('click', () => {
@@ -33,3 +27,29 @@ numerals.forEach((button) => {
         document.getElementById("display").textContent = displayValue.join("");
     })
 });
+
+const operators = document.querySelectorAll(".operator");
+operators.forEach((button) => {
+    button.addEventListener('click', () => {
+        operation.push(button.value);
+        console.log(operation);
+        console.log(displayValue)
+        operation.push(Number(displayValue.join("")));
+        displayValue = [];
+    })
+});
+
+const equals = document.querySelector(".equals");
+    equals.addEventListener('click', () => {
+        operation.push(Number(displayValue.join("")));
+        displayValue = [(operate(operation))];
+        document.getElementById("display").textContent = displayValue;
+        operation = [];
+    });
+
+const clear = document.querySelector(".clear");
+    clear.addEventListener('click', () => {
+        displayValue = [];
+        operation = [];
+        document.getElementById("display").textContent = displayValue;
+    });
