@@ -23,6 +23,8 @@ let operation = [];
 const numerals = document.querySelectorAll(".numeral");
 numerals.forEach((button) => {
     button.addEventListener('click', () => {
+        // TODO - Limit displayValue to 12(?) characters
+        // TODO - override display showing result of last operation
         displayValue.push(button.value);
         document.getElementById("display").textContent = displayValue.join("");
     })
@@ -32,8 +34,8 @@ const operators = document.querySelectorAll(".operator");
 operators.forEach((button) => {
     button.addEventListener('click', () => {
         operation.push(button.value);
-        console.log(operation);
-        console.log(displayValue)
+        //console.log(operation);
+        //console.log(displayValue);
         operation.push(Number(displayValue.join("")));
         displayValue = [];
     })
@@ -43,6 +45,10 @@ const equals = document.querySelector(".equals");
     equals.addEventListener('click', () => {
         operation.push(Number(displayValue.join("")));
         displayValue = [(operate(operation))];
+        if (`${displayValue[0]}`.length > 12) {
+            displayValue[0] = displayValue[0].toFixed(12);
+        }
+        //TO-DO - display error for impossible operations ie "1/0"
         document.getElementById("display").textContent = displayValue;
         operation = [];
     });

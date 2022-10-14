@@ -3,9 +3,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 button {
+    border-radius: 5px;
     width: 80px;
     height: 80px;
     font-size: 50px;
@@ -19,10 +21,23 @@ button {
     margin: 0;
     height: 70px;
 }
+
+.numeral {
+    color: white;
+    background-color: blue;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
 .workspace {
+    border-radius: 5px;
     background-color: grey;
     display: flex;
     flex-direction: column;
     gap:10px;
-    padding: 10px;
+    padding: 15px;
+    width: 360px;
 }
