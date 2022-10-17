@@ -24,19 +24,19 @@ let lastOperation = false;
 const numerals = document.querySelectorAll(".numeral");
 numerals.forEach((button) => {
     button.addEventListener('click', () => {
-        // TODO - Limit displayValue to 12(?) characters
+        // TODO - Add sound effect
         if (lastOperation == true) {
             displayValue = [];
             document.getElementById("display").textContent = displayValue;
             lastOperation = false;
         }
         displayValue.push(button.value);
+        // Limit displayValue to 12(?) characters
         if (displayValue.length > 12) {
             document.getElementById("display").textContent = "Out of range";
             displayValue = []
             operation = [];
             return;
-            //displayValue[0] = displayValue[0].toFixed(11);
         }
         document.getElementById("display").textContent = displayValue.join("");
     })
@@ -63,7 +63,7 @@ const equals = document.querySelector(".equals");
         if (`${displayValue[0]}`.length > 12) {
             displayValue[0] = displayValue.join("").substring(0, 11) + "+";
         }
-        //TO-DO - display error for impossible operations ie "1/0"
+        // Display error for impossible operations ie "1/0"
         if (`${displayValue[0]}` == "Infinity" || `${displayValue[0]}` == "NaN" ) {
             displayValue[0] = "Nope! ಠ_ಠ";
         }
